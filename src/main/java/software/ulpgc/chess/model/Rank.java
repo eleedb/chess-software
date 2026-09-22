@@ -1,4 +1,4 @@
-package software.ulpgc.chess;
+package software.ulpgc.chess.model;
 
 public class Rank {
     //fila en la que te encuentras (1-8)

@@ -1,4 +1,4 @@
-package software.ulpgc.chess;
+package software.ulpgc.chess.model;
 
 public class Board {
     //cada tablero tiene 64 squares
@@ -59,6 +59,10 @@ public class Board {
 
     public boolean isEmptyAt(File file, Rank rank) {
         return grid[rank.toInt()][file.toInt()] == null;
+    }
+
+    public boolean isOutOfBounds(int file, int rank) {
+        return file < 0 || file > 7 || rank < 0 || rank > 7;
     }
 
     /*public void movePiece(File fileFrom, Rank rankFrom, File fileTo, Rank rankTo) {

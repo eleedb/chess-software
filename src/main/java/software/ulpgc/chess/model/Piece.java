@@ -1,3 +1,3 @@
-package software.ulpgc.chess;
+package software.ulpgc.chess.model;
 
 public record Piece(PieceType type, Color color) {}

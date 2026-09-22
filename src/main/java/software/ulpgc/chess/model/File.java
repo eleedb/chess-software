@@ -1,4 +1,4 @@
-package software.ulpgc.chess;
+package software.ulpgc.chess.model;
 
 public class File {
     private final int value;
