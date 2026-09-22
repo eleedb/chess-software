@@ -1,4 +1,3 @@
 package software.ulpgc.chess;
 
-public class Piece {
-}
+public record Piece(PieceType type, Color color) {}
