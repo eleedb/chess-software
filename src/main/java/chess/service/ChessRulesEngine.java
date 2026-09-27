@@ -24,4 +24,8 @@ public class ChessRulesEngine {
 
         return validatePieceMovement(board, sourcePiece, move.squareFrom(), move.squareTo());
     }
+
+    public boolean validatePieceMovement(Board board, Piece piece, Square squareFrom, Square squareTo){
+        return false;
+    }
 }
