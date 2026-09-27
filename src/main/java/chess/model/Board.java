@@ -50,4 +50,7 @@ public class Board {
     public void removePieceAt(Square square) {
         grid[square.rank()][square.file()] = null;
     }
+    public boolean isEmptyAt(Square square) {
+        return grid[square.rank()][square.file()] == null;
+    }
 }
