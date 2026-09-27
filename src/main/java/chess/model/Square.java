@@ -9,7 +9,6 @@ public class Square {
         this.file = file;
     }
 
-    public int rank() {
-        return rank.toInt();
-    }
+    public int rank() {return rank.toInt();}
+    public int file() {return file.toInt();}
 }
