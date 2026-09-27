@@ -47,4 +47,7 @@ public class Board {
     public void setPieceAt(Square square, Piece piece){
         grid[square.rank()][square.file()] = piece;
     }
+    public void removePieceAt(Square square) {
+        grid[square.rank()][square.file()] = null;
+    }
 }
