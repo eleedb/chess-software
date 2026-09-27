@@ -8,4 +8,8 @@ public class Square {
         this.rank = rank;
         this.file = file;
     }
+
+    public int rank() {
+        return rank.toInt();
+    }
 }
