@@ -58,7 +58,31 @@ public class ChessRulesEngine {
     }
 
     private boolean validatePawnMove(Board board, Piece pawn, Square squareFrom, Square squareTo) {
-        return true;
+        int direction = (pawn.color() == Color.WHITE) ? 1 : -1;
+        int startRank = (pawn.color() == Color.WHITE) ? 1 : 6;
+
+        int fileDiff = squareTo.file() - squareFrom.file();
+        int rankDiff = squareTo.rank() - squareFrom.rank();
+
+        Piece targetPiece = board.getPieceAt(squareTo);
+
+        //avanza hacia delante misma columna
+        if(fileDiff == 0){
+            //avanza 1 casilla
+            if(rankDiff == direction){
+                return targetPiece == null;
+            }
+            //avanza 2 casillas desde pos inicial
+            if(squareFrom.rank() == startRank && rankDiff == 2 * direction){
+                return targetPiece == null && isPathClear(board, squareFrom, squareTo);
+            }
+            return false;
+        }
+        //captura diagonal (1 col izq/dch y 1 fila en la direccion del peon)
+        if(Math.abs(fileDiff) == 1 && rankDiff == direction){
+            return targetPiece != null;
+        }
+        return false;
     }
 
     public boolean isPathClear(Board board, Square squareFrom, Square squareTo) {
