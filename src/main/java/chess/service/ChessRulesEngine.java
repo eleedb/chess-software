@@ -4,28 +4,64 @@ import chess.model.*;
 
 public class ChessRulesEngine {
 
-    public boolean isValidMove(Board board, Move move, Color turn){
-        if(move.playerColor() != turn){
+    public boolean isValidMove(Board board, Move move, Color turn) {
+        if (move.playerColor() != turn) {
             return false;
         }
 
         Piece sourcePiece = board.getPieceAt(move.squareFrom());
-        if(sourcePiece == null){
+        if (sourcePiece == null) {
             return false;
         }
-        if (sourcePiece.color() != move.playerColor()){
+        if (sourcePiece.color() != move.playerColor()) {
             return false;
         }
 
         Piece targetPiece = board.getPieceAt(move.squareTo());
-        if(targetPiece != null && targetPiece.color() == move.playerColor()){
+        if (targetPiece != null && targetPiece.color() == move.playerColor()) {
             return false;
         }
 
         return validatePieceMovement(board, sourcePiece, move.squareFrom(), move.squareTo());
     }
 
-    public boolean validatePieceMovement(Board board, Piece piece, Square squareFrom, Square squareTo){
+    public boolean validatePieceMovement(Board board, Piece piece, Square squareFrom, Square squareTo) {
+        int deltaFile = Math.abs(squareTo.file() - squareFrom.file());
+        int deltaRank = Math.abs(squareTo.rank() - squareFrom.rank());
+
+        switch (piece.type()) {
+            case ROOK -> {
+                //torre
+                return (squareFrom.file() == squareTo.file() || squareFrom.rank() == squareTo.rank()) && isPathClear(board, squareFrom, squareTo);
+            }
+            case KNIGHT -> {
+                //caballo
+                return (deltaFile == 1 && deltaRank == 2) || (deltaFile == 2 && deltaRank == 1);
+            }
+            case BISHOP -> {
+                //alfil
+                return (deltaFile == deltaRank) && isPathClear(board, squareFrom, squareTo);
+            }
+            case QUEEN -> {
+                //reina
+                return (squareFrom.file() == squareTo.file() || squareFrom.rank() == squareTo.rank() || deltaFile == deltaRank) && isPathClear(board, squareFrom, squareTo);
+            }
+            case KING -> {
+                //rey
+                return deltaFile <= 1 && deltaRank <= 1 && (deltaFile + deltaRank > 0);
+            }
+            case PAWN -> {
+                return validatePawnMove(board, piece, squareFrom, squareTo);
+            }
+        }
         return false;
+    }
+
+    private boolean validatePawnMove(Board board, Piece pawn, Square squareFrom, Square squareTo) {
+        return true;
+    }
+
+    public boolean isPathClear(Board board, Square squareFrom, Square squareTo) {
+        return true;
     }
 }
