@@ -86,6 +86,23 @@ public class ChessRulesEngine {
     }
 
     public boolean isPathClear(Board board, Square squareFrom, Square squareTo) {
+        int fileStep = Integer.compare(squareTo.file(), squareFrom.file()); // Returns 1, 0, or -1
+        int rankStep = Integer.compare(squareTo.rank(), squareFrom.rank()); // Returns 1, 0, or -1
+
+        int currentFile = squareFrom.file() + fileStep;
+        int currentRank = squareFrom.rank() + rankStep;
+
+        while (currentFile != squareTo.file() || currentRank != squareTo.rank()) {
+            Square currentSquare = new Square(new File(currentFile), new Rank(currentRank));
+
+            if (!board.isEmptyAt(currentSquare)) {
+                return false; // Pieza bloqueando la trayectoria
+            }
+
+            currentFile += fileStep;
+            currentRank += rankStep;
+        }
+
         return true;
     }
 }
