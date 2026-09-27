@@ -8,4 +8,7 @@ public class Board {
     public Piece getPieceAt(Square square){
         return grid[square.rank()][square.file()];
     }
+    public void setPieceAt(Square square, Piece piece){
+        grid[square.rank()][square.file()] = piece;
+    }
 }
