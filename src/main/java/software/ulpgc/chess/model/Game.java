@@ -26,4 +26,5 @@ public class Game {
         this.movementExecuter = new MovementExecuter();
     }
     public String getId() { return id; }
+    public Board getBoard() { return board; }
 }
