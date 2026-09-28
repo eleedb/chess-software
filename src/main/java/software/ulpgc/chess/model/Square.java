@@ -1,4 +1,4 @@
-package chess.model;
+package software.ulpgc.chess.model;
 
 public class Square {
     private final Rank rank;

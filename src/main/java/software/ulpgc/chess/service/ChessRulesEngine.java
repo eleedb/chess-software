@@ -1,6 +1,6 @@
-package chess.service;
+package software.ulpgc.chess.service;
 
-import chess.model.*;
+import software.ulpgc.chess.model.*;
 
 public class ChessRulesEngine {
 

@@ -1,9 +1,9 @@
-package chess.model;
+package software.ulpgc.chess.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import chess.service.ChessRulesEngine;
-import chess.service.MovementExecuter;
+import software.ulpgc.chess.service.ChessRulesEngine;
+import software.ulpgc.chess.service.MovementExecuter;
 
 public class Game {
     private final String id;

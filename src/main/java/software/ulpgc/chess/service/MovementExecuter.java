@@ -1,10 +1,8 @@
-package chess.service;
+package software.ulpgc.chess.service;
 
-import chess.model.Board;
-import chess.model.Piece;
-import chess.model.File;
-import chess.model.Rank;
-import chess.model.Square;
+import software.ulpgc.chess.model.Board;
+import software.ulpgc.chess.model.Piece;
+import software.ulpgc.chess.model.Square;
 
 public class MovementExecuter {
     public Piece applyMove ( Board board, Square squareFrom, Square squareTo){
