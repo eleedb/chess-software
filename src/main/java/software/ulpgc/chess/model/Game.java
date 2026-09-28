@@ -25,4 +25,5 @@ public class Game {
         this.rulesEngine = new ChessRulesEngine();
         this.movementExecuter = new MovementExecuter();
     }
+    public String getId() { return id; }
 }
