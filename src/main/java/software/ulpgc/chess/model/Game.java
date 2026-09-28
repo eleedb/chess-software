@@ -28,4 +28,5 @@ public class Game {
     public String getId() { return id; }
     public Board getBoard() { return board; }
     public Color getCurrentTurn() { return currentTurn; }
+    public List<Move> getMoveHistory() { return moveHistory; }
 }
